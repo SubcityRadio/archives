@@ -1,0 +1,31 @@
+{
+  "name": "subcity-archive",
+  "version": "0.0.1",
+  "description": "Subcity Archives project (over the years)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubcityRadio/archives.git"
+  },
+  "keywords": [
+    "Subcity",
+    "Archives",
+    "Next.js"
+  ],
+  "author": "Subcity Web Team & Archives Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SubcityRadio/archives/issues"
+  },
+  "homepage": "https://github.com/SubcityRadio/archives#readme",
+  "dependencies": {
+    "next": "^8.0.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  }
+}
