@@ -1,6 +1,6 @@
 {
   "name": "subcity-archive",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Subcity Archives project (over the years)",
   "main": "index.js",
   "scripts": {
