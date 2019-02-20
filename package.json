@@ -4,9 +4,9 @@
   "description": "Subcity Archives project (over the years)",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/SubcityRadio/archives#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "next": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"

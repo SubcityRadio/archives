@@ -1,7 +1,8 @@
 import Layout from "../components/Layout.js";
 import YearNavigator from "../components/YearNavigator.js";
+import { withRouter } from "next/router";
 
-export default () => (
+const Page = withRouter(props => (
   <Layout>
     <YearNavigator
       years={[
@@ -18,7 +19,9 @@ export default () => (
       ]}
     />
     <div>
-      <p>about</p>
+      <p>{props.router.query.year}</p>
     </div>
   </Layout>
-);
+));
+
+export default Page;
