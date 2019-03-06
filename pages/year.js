@@ -7,8 +7,7 @@ import axios from "axios";
 class Page extends React.Component {
   state = {
     years: [],
-    open: false,
-    currentYear: this.props.router.query.year
+    open: false
   };
 
   onOpenModal = () => {
@@ -26,9 +25,7 @@ class Page extends React.Component {
         years.push(yearEntry.year);
       }
       years.sort();
-      let currentYear = this.props.router.query.year;
       this.setState({ years });
-      this.setState({ currentYear });
     });
   }
 

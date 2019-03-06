@@ -5,23 +5,21 @@ export default class YearNavigator extends React.Component {
     return (
       <ul className="year-list">
         <li>
-          <a> About</a>
+          <a key="About"> About</a>
         </li>
         {years && years.length > 0 ? (
-          years.map(year => (
-            <Year key={year} info={year} />
-            // <li>
-            //   <a>{year}</a>
-            // </li>
-          ))
+          years.map(year => <Year key={year} info={year} />)
         ) : (
           <p>Error loading the years</p>
         )}
         <style global jsx>{`
           .year-list {
-            display: grid;
-            list-style-type: none;
+            margin-top: 2%;
+            position: fixed;
+            float: left;
             padding: 0;
+            width: 16%;
+            list-style-type: none;
           }
           li a {
             display: inline-block;

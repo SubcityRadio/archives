@@ -16,12 +16,37 @@ class Post extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-action" onClick={this.onOpenModal}>
-          {this.props.post.post_id}
-        </button>
+        <div className="post" onClick={this.onOpenModal}>
+          <img src="https://placeimg.com/200/200/any" />
+        </div>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-          <div>{this.props.post.post_content}</div>
+          <div>
+            <h1>{this.props.post.title}</h1>
+            <p>{this.props.post.post_content}</p>
+            <img src="https://placeimg.com/200/200/any" />
+          </div>
         </Modal>
+        <style jsx>
+          {`
+            .post {
+              display: inline-block;
+              text-decoration: none;
+              background-color: #dadad9;
+              color: black;
+              text-align: center;
+              border-width: 1pt;
+              border-style: solid;
+            }
+
+            .post:focus,
+            .post:hover,
+            .post:active {
+              background-color: #ececec;
+              color: #ff00ff;
+              border-width: 5pt;
+            }
+          `}
+        </style>
       </div>
     );
   }

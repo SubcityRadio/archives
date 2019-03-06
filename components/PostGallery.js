@@ -34,32 +34,19 @@ export default class PostGallery extends React.Component {
     return (
       <div id="gallery">
         {posts && posts.length > 0 ? (
-          posts.map(post => <Post className="post" post={post} />)
+          posts.map(post => <Post post={post} />)
         ) : (
           <p>Error loading the content</p>
         )}
         <style global jsx>{`
           #gallery {
+            margin-top: 2%;
+            float: right;
+            width: 80%;
             display: grid;
-          }
-          post {
-            display: inline-block;
-            text-decoration: none;
-            width: 100%;
-            background-color: #dadad9;
-            color: black;
-            text-align: center;
-            border-width: 1pt;
-            border-style: solid;
-          }
-
-          post:focus,
-          post:hover,
-          post:active {
-            background-color: #ececec;
-            color: #ff00ff;
-            border-width: 8pt;
-            width: 95%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-auto-rows: 1fr;
+            grid-gap: 1rem;
           }
         `}</style>
       </div>
