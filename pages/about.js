@@ -1,24 +1,35 @@
 import Layout from "../components/Layout.js";
 import YearNavigator from "../components/YearNavigator.js";
+import axios from "axios";
 
-export default () => (
-  <Layout>
-    <YearNavigator
-      years={[
-        "2000",
-        "2001",
-        "2002",
-        "2003",
-        "2004",
-        "2005",
-        "2006",
-        "2007",
-        "2008",
-        "2009"
-      ]}
-    />
-    <div>
-      <p>about</p>
-    </div>
-  </Layout>
-);
+class About extends React.Component {
+  state = {
+    years: []
+  };
+
+  componentDidMount() {
+    axios.get(`https://subcity-admin.appspot.com/years/`).then(res => {
+      const years = [];
+      console.log(res.data);
+      for (let yearEntry of res.data) {
+        years.push(yearEntry.year);
+      }
+      years.sort();
+      console.log(years);
+      this.setState({ years });
+    });
+  }
+
+  render() {
+    return (
+      <Layout>
+        <YearNavigator years={this.state.years} />
+        <div>
+          <p>About</p>
+        </div>
+      </Layout>
+    );
+  }
+}
+
+export default withRouter(About);

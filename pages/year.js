@@ -1,27 +1,45 @@
 import Layout from "../components/Layout.js";
+import PostGallery from "../components/PostGallery.js";
 import YearNavigator from "../components/YearNavigator.js";
 import { withRouter } from "next/router";
+import axios from "axios";
 
-const Page = withRouter(props => (
-  <Layout>
-    <YearNavigator
-      years={[
-        "2000",
-        "2001",
-        "2002",
-        "2003",
-        "2004",
-        "2005",
-        "2006",
-        "2007",
-        "2008",
-        "2009"
-      ]}
-    />
-    <div>
-      <p>{props.router.query.year}</p>
-    </div>
-  </Layout>
-));
+class Page extends React.Component {
+  state = {
+    years: [],
+    open: false,
+    currentYear: this.props.router.query.year
+  };
 
-export default Page;
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
+  componentDidMount() {
+    axios.get(`https://subcity-admin.appspot.com/years/`).then(res => {
+      const years = [];
+      for (let yearEntry of res.data) {
+        years.push(yearEntry.year);
+      }
+      years.sort();
+      let currentYear = this.props.router.query.year;
+      this.setState({ years });
+      this.setState({ currentYear });
+    });
+  }
+
+  render() {
+    return (
+      <Layout>
+        <YearNavigator years={this.state.years} />
+        <PostGallery year={this.props.router.query.year} />
+      </Layout>
+    );
+  }
+}
+
+export default withRouter(Page);

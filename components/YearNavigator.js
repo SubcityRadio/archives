@@ -9,7 +9,7 @@ export default class YearNavigator extends React.Component {
         </li>
         {years && years.length > 0 ? (
           years.map(year => (
-            <Year info={year} />
+            <Year key={year} info={year} />
             // <li>
             //   <a>{year}</a>
             // </li>
