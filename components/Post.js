@@ -17,13 +17,16 @@ class Post extends React.Component {
     return (
       <div>
         <div className="post" onClick={this.onOpenModal}>
-          <img src="https://placeimg.com/200/200/any" />
+          <img src={this.props.post.post_image} />
         </div>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
           <div>
             <h1>{this.props.post.title}</h1>
             <p>{this.props.post.post_content}</p>
-            <img src="https://placeimg.com/200/200/any" />
+            <img
+              src={this.props.post.post_image}
+              alt={this.props.post.post_image_alt_text}
+            />
           </div>
         </Modal>
         <style jsx>
