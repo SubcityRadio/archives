@@ -1,6 +1,6 @@
 const Header = () => (
   <div id="header">
-    <h1> Header</h1>
+    <h1>Archive</h1>
     <div className="logos">
       <a href="https://subcity.org">
         <img

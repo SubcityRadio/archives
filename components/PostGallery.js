@@ -36,7 +36,7 @@ export default class PostGallery extends React.Component {
         {posts && posts.length > 0 ? (
           posts.map(post => <Post post={post} />)
         ) : (
-          <p>Error loading the content</p>
+          <p>Loading ...</p>
         )}
         <style global jsx>{`
           #gallery {

@@ -1,25 +1,30 @@
 import Year from "./Year";
+import Link from "next/link";
+
 export default class YearNavigator extends React.Component {
   render() {
     const years = this.props.years;
     return (
       <ul className="year-list">
         <li>
-          <a key="About"> About</a>
+          <Link key="About" as={`/about`} href={`/about`}>
+            <a>About</a>
+          </Link>
         </li>
         {years && years.length > 0 ? (
           years.map(year => <Year key={year} info={year} />)
         ) : (
-          <p>Error loading the years</p>
+          <p>Loading...</p>
         )}
         <style global jsx>{`
           .year-list {
             margin-top: 2%;
             position: fixed;
             float: left;
-            padding: 0;
+            padding-left: 1%;
             width: 16%;
             list-style-type: none;
+            font-size: 25px;
           }
           li a {
             display: inline-block;
