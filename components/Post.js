@@ -26,6 +26,7 @@ class Post extends React.Component {
             <img
               src={this.props.post.post_image}
               alt={this.props.post.post_image_alt_text}
+              className="post-image"
             />
           </div>
         </Modal>
@@ -34,7 +35,6 @@ class Post extends React.Component {
             .post {
               display: inline-block;
               text-decoration: none;
-              background-color: #dadad9;
               color: black;
               text-align: center;
               border-width: 1pt;
@@ -47,6 +47,9 @@ class Post extends React.Component {
               background-color: #ececec;
               color: #ff00ff;
               border-width: 5pt;
+            }
+            img {
+              width: 80%;
             }
           `}
         </style>
