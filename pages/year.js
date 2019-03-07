@@ -1,25 +1,30 @@
 import Layout from "../components/Layout.js";
+import PostGallery from "../components/PostGallery.js";
 import YearNavigator from "../components/YearNavigator.js";
+import { withRouter } from "next/router";
 import axios from "axios";
-import Modal from "react-responsive-modal";
 
-export default class Index extends React.Component {
+class Page extends React.Component {
   state = {
     years: [],
-    open: false,
-    currentYear: 2002,
-    posts: []
+    open: false
+  };
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
   };
 
   componentDidMount() {
     axios.get(`https://subcity-admin.appspot.com/years/`).then(res => {
       const years = [];
-      console.log(res.data);
       for (let yearEntry of res.data) {
         years.push(yearEntry.year);
       }
       years.sort();
-      console.log(years);
       this.setState({ years });
     });
   }
@@ -28,10 +33,10 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <YearNavigator years={this.state.years} />
-        <div>
-          <p>there</p>
-        </div>
+        <PostGallery year={this.props.router.query.year} />
       </Layout>
     );
   }
 }
+
+export default withRouter(Page);
