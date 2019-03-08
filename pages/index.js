@@ -1,14 +1,13 @@
 import Layout from "../components/Layout.js";
 import YearNavigator from "../components/YearNavigator.js";
 import axios from "axios";
+import PostGallery from "../components/PostGallery";
 import Modal from "react-responsive-modal";
 
 export default class Index extends React.Component {
   state = {
     years: [],
-    open: false,
-    currentYear: 2002,
-    posts: []
+    open: false
   };
 
   componentDidMount() {
@@ -28,9 +27,7 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <YearNavigator years={this.state.years} />
-        <div>
-          <p>there</p>
-        </div>
+        <PostGallery year="1995" />
       </Layout>
     );
   }
