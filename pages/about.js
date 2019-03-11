@@ -24,7 +24,7 @@ class About extends React.Component {
   render() {
     return (
       <Layout>
-        <YearNavigator years={this.state.years} />
+        {/* <YearNavigator years={this.state.years} /> */}
         <div id="about-section">
           <p>
             Since 1995, Subcity has been broadcasting alternative community

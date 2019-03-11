@@ -32,7 +32,7 @@ class Page extends React.Component {
   render() {
     return (
       <Layout>
-        <YearNavigator years={this.state.years} />
+        {/* <YearNavigator years={this.state.years} /> */}
         <PostGallery year={this.props.router.query.year} />
       </Layout>
     );
