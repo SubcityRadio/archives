@@ -44,8 +44,7 @@ export default class PostGallery extends React.Component {
             float: right;
             width: 80%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-auto-rows: 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(415px, 1fr));
             grid-gap: 1rem;
           }
         `}</style>
